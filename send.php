@@ -5,8 +5,8 @@ require_once 'vendor/autoload.php';
 use League\Csv\Reader;
 use GuzzleHttp\Client;
 
+// Get info from ini file
 $ini = parse_ini_file("server.ini",true);
-
 $ini = $ini['server-details']['url'];
 
 //load the CSV document from a file path
@@ -27,7 +27,7 @@ $client = new Client([
 
 foreach ($records as $r) {
     $info = json_encode($r);
-    $client->request('POST', 'http://requestbin.net/r/1gl24891', [
+    $client->request('POST', $ini, [
         'body' => $info
     ]);
 }
