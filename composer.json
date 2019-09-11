@@ -1,0 +1,6 @@
+{
+    "require": {
+        "league/csv": "^9.3",
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
